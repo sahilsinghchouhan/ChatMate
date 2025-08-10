@@ -16,7 +16,7 @@ function ForgotPassword() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { isLoggedIn } = useSelector((state) => state.auth)
-//for signup
+
   useEffect(() => {
     if (isLoggedIn) {
       navigate("/signup")
