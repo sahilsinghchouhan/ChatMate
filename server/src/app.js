@@ -9,7 +9,7 @@ const httpServer = createServer(app);
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // ✅ NOT "*"
+    origin: "https://chatmate-client-sdco.onrender.com", // ✅ NOT "*"
     credentials: true,               // ✅ REQUIRED when using cookies or sessions
   })
 );// Allows all origins – only for local testing
