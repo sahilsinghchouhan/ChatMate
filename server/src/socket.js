@@ -4,15 +4,18 @@ import Channel from "./models/channel.models.js";
 
 
 const setupSocket = (server) => {
-    const io = new SocketIOServer(server,{
-        cors: {
-            origin: process.env.ORIGIN,
-            methods: ["GET","POST"],
-            credentials: true
-        },
-    });
+    const allowedOrigins = [
+    "http://localhost:5173",                // dev frontend
+    "https://chatmate-client-sdco.onrender.com" // prod frontend
+  ];
 
-    const userSocketMap = new Map();
+  const io = new SocketIOServer(server, {
+    cors: {
+      origin: allowedOrigins,
+      methods: ["GET", "POST"],
+      credentials: true,
+    },
+  });
 
     const disconnect = (socket) => {
         console.log(`Client Disconnected : ${socket.id}`);
